@@ -10,13 +10,14 @@ One question is how the variation in that cloud is distributed. Do many directio
 
 Let $Z\in\mathbb{R}^{N\times C}$ contain the centered feature vectors at one block, one image per row. The sample covariance is $\Sigma = Z^\top Z/(N-1)$. Write its eigenvalues as $\lambda_1,\ldots,\lambda_C$. For a cloud with nonzero variance, the **participation ratio (PR)** is
 
-$$
+```math
+\begin{aligned}
 \mathrm{PR}(Z)
-= \frac{\left(\sum_{k=1}^{C}\lambda_k\right)^2}{\sum_{k=1}^{C}\lambda_k^2}
-= \frac{\bigl(\operatorname{tr}\Sigma\bigr)^2}{\lVert\Sigma\rVert_F^2}
-= \frac{1}{\sum_{k=1}^{C}p_k^2},
-\qquad p_k=\frac{\lambda_k}{\sum_j\lambda_j}.
-$$
+&= \frac{\left(\sum_{k=1}^{C}\lambda_k\right)^2}{\sum_{k=1}^{C}\lambda_k^2} \\
+&= \frac{\bigl(\operatorname{tr}\Sigma\bigr)^2}{\lVert\Sigma\rVert_F^2} \\
+&= \frac{1}{\sum_{k=1}^{C}p_k^2}, \qquad p_k=\frac{\lambda_k}{\sum_j\lambda_j}.
+\end{aligned}
+```
 
 Think of $p_k$ as the share of variance carried by principal direction $k$. If four directions each carry a quarter of the variance, PR is 4. If nearly all the variance sits in one direction, PR is close to 1. More generally, $1\leq\mathrm{PR}\leq\min(C,N-1)$, and the upper bound can be reached when the available nonzero eigenvalues are equal.
 

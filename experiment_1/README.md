@@ -17,11 +17,11 @@ If we send the same images through five pretrained ResNets, does the point cloud
 
 For the first plot, we compute PR on each 200-image point cloud and average the 100 pair-level values at each block. For the second plot, we first compute the percentage change *within each pair*, then average those 100 percentages. If $P_{j,3}$ and $P_{j,4}$ are the PR values for pair $j$ at the last blocks of Layers 3 and 4, the reported statistic for each model is
 
-$$
+```math
 \overline{\Delta}_{3\to4} =
 \frac{1}{100}\sum_{j=1}^{100}
 100\frac{P_{j,4}-P_{j,3}}{P_{j,3}}\%.
-$$
+```
 
 The order matters here. Dividing the difference between the two block means by the Layer 3 mean would weight the pairs differently.
 
